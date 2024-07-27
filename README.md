@@ -36,7 +36,12 @@ Testing:
 ---------
 For testing the model, provide the file path of .wav audio file in the variable named file_path by downloading the datasets provided in the link (noisy testset) and select any one of the audio file after the running the Test File , reconstructed audio file will automatically save into your current folder.
 
+After testing the audio file we compare the waveforms with respect to the noisy files. It is seen that the wave has become normalized and most of the noise has been removed. The speech audio has also been enhanced to sound better and louder. 
+<img width="953" alt="image" src="https://github.com/user-attachments/assets/371cc7c3-538a-4ef0-a2d4-1c3d69c0b5bd">
 
+Conclusion:
+---------
+In conclusion, our speech enhancement program is capable of distinguishing and suppressing unwanted background noise while preserving the clarity of the spoken word. This technology not only improves the quality of audio recordings in noisy environments but also enhances the overall user experience in applications ranging from voice assistants to telecommunication systems. The model is able to cleanly remove natural noises, low-frequency noises, high-frequency noises and continuous noises.
 
 Libraries required:
 ---------
