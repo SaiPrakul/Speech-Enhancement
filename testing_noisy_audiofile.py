@@ -82,32 +82,6 @@ def for_output_using_model(loaded_model, stft_audio_db):
     return y_predict
 
 
-def compress_audio(audio, threshold=0.2, ratio=4.0):
-    """Apply dynamic range compression to the audio signal."""
-    compressed_audio = np.copy(audio)
-    for i in range(len(audio)):
-        if audio[i] > threshold:
-            compressed_audio[i] = threshold + (audio[i] - threshold) / ratio
-        elif audio[i] < -threshold:
-            compressed_audio[i] = -threshold + (audio[i] + threshold) / ratio
-    return compressed_audio
-
-
-def fill_gaps(audio, sr, gap_size=0.5):
-    """Fill gaps in audio by interpolation."""
-    gap_samples = int(gap_size * sr)
-    audio_with_gaps_filled = np.copy(audio)
-    non_zero_indices = np.nonzero(audio)[0]
-    for idx in range(len(non_zero_indices) - 1):
-        gap_start = non_zero_indices[idx]
-        gap_end = non_zero_indices[idx + 1]
-        if gap_end - gap_start > gap_samples:
-            fill_values = np.linspace(audio_with_gaps_filled[gap_start], audio_with_gaps_filled[gap_end], gap_end - gap_start)
-            audio_with_gaps_filled[gap_start:gap_end] = fill_values
-    return audio_with_gaps_filled
-
-
-
 filename = "joblib_model.sav"
 # load model with joblib
 loaded_model = joblib.load(filename)
